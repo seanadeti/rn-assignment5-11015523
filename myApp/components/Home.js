@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, Image, ScrollView } from 'react-native'
+import ThemeContext from '../global/themeContext';
 
 export default function Home () {
+    const {theme} = useContext(ThemeContext);
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        <SafeAreaView style={styles.container}>
+    <ScrollView style={[styles.container, theme.container]} showsVerticalScrollIndicator={false}>
+        <SafeAreaView style={[styles.container, theme.container]}>
             <View style={styles.head}>
                 <View style={{flexDirection: 'row'}}>
                     <Image source={require('../images/profile.png')}
                     style={{height: 60, width: 60}}/>
                     <View style={{paddingLeft: 10, }}>
-                        <Text style={styles.headText}>Welcome back, </Text>
-                        <Text style={{fontWeight: '700', fontSize: 20}}> Eric Atsu</Text>
+                        <Text style={[styles.headText, theme.text]}>Welcome back, </Text>
+                        <Text style={[{fontWeight: '700', fontSize: 20}, theme.text]}> Eric Atsu</Text>
                     </View>
                 </View>
                 
-                <View style={styles.searchIcon}>
+                <View style={[styles.searchIcon, theme.icons]}>
                     <Image source={require('../images/search.png')}
                     style={{height: 30}}/>
                 </View> 
@@ -27,96 +29,96 @@ export default function Home () {
             </View>
             <View style={{flexDirection: 'row', paddingTop: 10}}>
                 <View style={{paddingLeft: 25, alignItems: 'center'}}>
-                    <View style={styles.icon}>
+                    <View style={[styles.icon, theme.icons]}>
                         <Image source={require("../images/send.png")}/>
                     </View>
-                    <Text style={styles.iconText}>Sent</Text>
+                    <Text style={[styles.iconText, theme.text]}>Sent</Text>
                 </View>
                 <View style={{paddingLeft: 40, alignItems: 'center'}}>
-                    <View style={styles.icon}>
+                    <View style={[styles.icon, theme.icons]}>
                         <Image source={require("../images/recieve.png")}/>
                     </View>
-                    <Text style={styles.iconText}>Recieve</Text>
+                    <Text style={[styles.iconText, theme.text]}>Recieve</Text>
                 </View>
                 <View style={{paddingLeft: 40, alignItems: 'center'}}>
-                    <View style={styles.icon}>
+                    <View style={[styles.icon, theme.icons]}>
                         <Image source={require("../images/loan.png")}/>
                     </View>
-                    <Text style={styles.iconText}>Loan</Text>
+                    <Text style={[styles.iconText, theme.text]}>Loan</Text>
                 </View>
                 <View style={{paddingLeft: 40, alignItems: 'center'}}>
-                    <View style={styles.icon}>
+                    <View style={[styles.icon, theme.icons]}>
                         <Image source={require("../images/topUp.png")}/>
                     </View>
-                    <Text style={styles.iconText}>Top up</Text>
+                    <Text style={[styles.iconText, theme.text]}>Top up</Text>
                 </View>
             </View>
             <View style={styles.transaction}>
-                <Text style={styles.transText}>Transaction</Text>
-                <Text style={[styles.transText, {color:'blue'}]}> See All</Text>
+                <Text style={[styles.transText, theme.text]}>Transaction</Text>
+                <Text style={[styles.transText, {color:'blue'}, theme.blueText]}> See All</Text>
             </View>
             <View style={{padding: 20, paddingTop: 0}}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <View style={[styles.icon, {marginRight: 15}]}>
+                        <View style={[styles.icon, {marginRight: 15}, theme.icons]}>
                             <Image source={require('../images/apple.png')}
                             style={{height: 30, width: 20}}
                             resizeMode='contain'/>
                         </View>
                         <View>
-                            <Text style={[styles.money, {paddingTop: 0}]}>Apple Store</Text>
-                            <Text style={styles.entertainment}>Entertainment</Text>
+                            <Text style={[styles.money, {paddingTop: 0}, theme.text]}>Apple Store</Text>
+                            <Text style={[styles.entertainment, theme.text]}>Entertainment</Text>
                         </View>
                     </View>
-                    <Text style={styles.money}> -$5,99</Text>
+                    <Text style={[styles.money, theme.text]}> -$5,99</Text>
                 </View>
             </View>
             <View style={{padding: 20, paddingTop: 0}}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <View style={[styles.icon, {marginRight: 15}]}>
+                        <View style={[styles.icon, {marginRight: 15}, theme.icons]}>
                             <Image source={require('../images/spotify.png')}
                             style={{height: 30, width: 25}}
                             resizeMode='contain'/>
                         </View>
                         <View>
-                            <Text style={[styles.money, {paddingTop: 0}]}>Spotify </Text>
-                            <Text style={styles.entertainment}>Music</Text>
+                            <Text style={[styles.money, {paddingTop: 0}, theme.text]}>Spotify </Text>
+                            <Text style={[styles.entertainment, theme.text]}>Music</Text>
                         </View>
                     </View>
-                    <Text style={styles.money}> -$12,99</Text>
+                    <Text style={[styles.money, theme.text]}> -$12,99</Text>
                 </View>
             </View>
             <View style={{padding: 20, paddingTop: 0}}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <View style={[styles.icon, {marginRight: 15}]}>
+                        <View style={[styles.icon, {marginRight: 15}, theme.icons]}>
                             <Image source={require('../images/moneyTransfer.png')}
                             style={{height: 30, width: 25}}
                             resizeMode='contain'/>
                         </View>
                         <View>
-                            <Text style={[styles.money, {paddingTop: 0}]}>Money Transfer </Text>
-                            <Text style={styles.entertainment}>Transaction</Text>
+                            <Text style={[styles.money, {paddingTop: 0}, theme.text]}>Money Transfer </Text>
+                            <Text style={[styles.entertainment, theme.text]}>Transaction</Text>
                         </View>
                     </View>
-                    <Text style={[styles.money, {color: 'blue'}]}> $300</Text>
+                    <Text style={[styles.money, {color: 'blue'}, theme.blueText]}> $300</Text>
                 </View>
             </View>
             <View style={{padding: 20, paddingTop: 0}}>
                 <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <View style={[styles.icon, {marginRight: 15}]}>
+                        <View style={[styles.icon, {marginRight: 15}, theme.icons]}>
                             <Image source={require('../images/grocery.png')}
                             style={{height: 30, width: 25}}
                             resizeMode='contain'/>
                         </View>
                         <View>
-                            <Text style={[styles.money, {paddingTop: 0}]}>Grocery </Text>
-                            <Text style={styles.entertainment}>Food Stuffs</Text>
+                            <Text style={[styles.money, {paddingTop: 0}, theme.text]}>Grocery </Text>
+                            <Text style={[styles.entertainment, theme.text]}>Food Stuffs</Text>
                         </View>
                     </View>
-                    <Text style={styles.money}> -$88</Text>
+                    <Text style={[styles.money, theme.text]}> -$88</Text>
                 </View>
             </View>
         </SafeAreaView>

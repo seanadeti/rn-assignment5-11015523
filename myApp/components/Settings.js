@@ -1,36 +1,38 @@
-import React, {useState} from 'react'
-import { View, Text, StyleSheet, SafeAreaView, FlatList, TouchableOpacity, Switch, Dimensions } from 'react-native';
+import React, {useContext} from 'react'
+import { View, Text, StyleSheet, SafeAreaView, Switch} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ThemeContext from '../global/themeContext';
 
 
 export default function Settings () {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleSwitch = () => setIsDarkMode(previousState => !previousState);
+  const { isDarkMode, toggleTheme, theme } = useContext(ThemeContext);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, theme.container]}>
       <View style={styles.listItem}>
-        <Text style={styles.itemText}>Language</Text>
+        <Text style={[styles.itemText, theme.text]}>Language</Text>
         <Icon name="keyboard-arrow-right" size={24} color="#7E7E7E" />
       </View>
       <View style={styles.listItem}>
-        <Text style={styles.itemText}>My Profile</Text>
+        <Text style={[styles.itemText, theme.text]}>My Profile</Text>
         <Icon name="keyboard-arrow-right" size={24} color="#7E7E7E" />
       </View>
       <View style={styles.listItem}>
-        <Text style={styles.itemText}>Contact Us </Text>
+        <Text style={[styles.itemText, theme.text]}>Contact Us </Text>
         <Icon name="keyboard-arrow-right" size={24} color="#7E7E7E" />
       </View>
       <View style={styles.listItem}>
-        <Text style={styles.itemText}>Change Password</Text>
+        <Text style={[styles.itemText, theme.text]}>Change Password</Text>
         <Icon name="keyboard-arrow-right" size={24} color="#7E7E7E" />
       </View>
       <View style={styles.listItem}>
-        <Text style={styles.itemText}>Privacy Policy</Text>
+        <Text style={[styles.itemText, theme.text]}>Privacy Policy</Text>
         <Icon name="keyboard-arrow-right" size={24} color="#7E7E7E" />
       </View>
       <View style={styles.switchContainer}>
-        <Text style={styles.switchText}>Theme</Text>
-        <Switch />
+        <Text style={[styles.switchText, theme.text]}>Theme</Text>
+        <Switch 
+        value={isDarkMode}
+        onValueChange={toggleTheme}/>
       </View>
     </SafeAreaView>
   );
