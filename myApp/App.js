@@ -57,7 +57,6 @@ function AppNavigator() {
   );
 }
 
-
 export default function App() {
   return (
     <ThemeProvider>
